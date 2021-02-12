@@ -48,10 +48,10 @@ class Player {
         const dx = this.x - mouse.x;
         const dy = this.y - mouse.y;
         if(mouse.x !== this.x) {
-            this.x -= dx/30;
+            this.x -= dx/20;
         };
         if(mouse.y !== this.y) {
-            this.y -= dy/30;
+            this.y -= dy/20;
         };
     }
 
@@ -76,3 +76,12 @@ const player = new Player();
 
 // Bubbles
 // Animation Loop
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    player.update();
+    player.draw();
+    requestAnimationFrame(animate);
+}
+
+animate();

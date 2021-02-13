@@ -91,6 +91,9 @@ const player = new Player();
 
 const bubblesArray = [];
 
+const bubbleImage = new Image();
+bubbleImage.src = "bubble_pop_frame_01.png";
+
 class Bubble {
     constructor() {
         this.x = Math.random() * canvas.width;
@@ -110,12 +113,13 @@ class Bubble {
     }
 
     draw() {
-        ctx.fillStyle = "blue";
+        /*ctx.fillStyle = "blue";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fill();
         ctx.closePath();
-        ctx.stroke();
+        ctx.stroke();*/
+        ctx.drawImage(bubbleImage, this.x-65, this.y-65, this.radius*2.6, this.radius*2.6);
     }
 }
 

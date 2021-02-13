@@ -152,11 +152,20 @@ function handleBubbles() {
     }
 }
 
+//Repeating backgrounds
+
+const background = new Image();
+background.src = 'background1.png';
+
+function handleBackground() {
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+}
 
 // Animation Loop
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    handleBackground();
     handleBubbles();
     player.update();
     player.draw();

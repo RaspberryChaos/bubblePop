@@ -211,6 +211,19 @@ class Enemy {
             this.y = Math.random() * (canvas.height -150) + 90;
             this.speed = Math.random() * 2 + 2;
         }
+
+        if(gameFrame % 12 === 0) {
+            this.frame++;
+            if (this.frame >= 12) this.frame = 0;
+            if(this.frame === 3 || this.frame === 7 || this.frame === 11) {
+                this.frameX = 0;
+            } else {
+                this.frameX++;
+            }
+            this.frameY =  this.frame < 3 ? 0 :
+            this.frame < 7 ? 1 :
+            this.frame < 11 ? 2 : 0;
+        }
     }
 }
 

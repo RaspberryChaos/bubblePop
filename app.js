@@ -12,7 +12,7 @@ let gameSpeed = 1;
 let gameOver = false;
 
 let canvasPosition = canvas.getBoundingClientRect();
-
+const replayBtn = document.getElementById("replay");
 // Mouse Interactivity
 
 let mouse = {
@@ -30,6 +30,11 @@ canvas.addEventListener("mousedown", function(event){
 canvas.addEventListener("mouseup", function() {
     mouse.click = false;
 });
+
+replayBtn.addEventListener("click", () => {
+    console.log("clicked");
+    restart();
+})
 
 // Player
 
@@ -103,7 +108,7 @@ const player = new Player();
 
 // Bubbles
 
-const bubblesArray = [];
+let bubblesArray = [];
 
 const bubbleImage = new Image();
 bubbleImage.src = "bubble_pop_frame_01.png";
@@ -263,6 +268,20 @@ function handleGameOver() {
     ctx.fillStyle = "white";
     ctx.fillText(`GAME OVER, you reached score ${score}`, 110, 250);
     gameOver = true;
+    replayBtn.classList.remove("hidden");
+    console.log(replayBtn);
+}
+
+// Play Again
+function restart() {
+    score = 0;
+    gameFrame = 0;
+    gameSpeed = 1;
+    gameOver = false;
+    bubblesArray = [];
+    enemy1.x = canvas.width + 200;
+    animate();
+    replayBtn.classList.add("hidden");
 }
 
 

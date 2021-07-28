@@ -32,7 +32,6 @@ canvas.addEventListener("mouseup", function() {
 });
 
 replayBtn.addEventListener("click", () => {
-    console.log("clicked");
     restart();
 })
 
@@ -269,7 +268,6 @@ function handleGameOver() {
     ctx.fillText(`GAME OVER, you reached score ${score}`, 110, 250);
     gameOver = true;
     replayBtn.classList.remove("hidden");
-    console.log(replayBtn);
 }
 
 // Play Again
